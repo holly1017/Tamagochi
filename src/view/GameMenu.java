@@ -1,5 +1,5 @@
 package view;
-
+// 제발 성공 해주라
 import java.util.Scanner;
 import controller.TamagochiController;
 
