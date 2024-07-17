@@ -10,24 +10,24 @@ public class GameMenu {
     public void mainMenu() {
         while (true) {
             System.out.println("******** Welcome to Tamagochi Game! ********");
-            // °ÔÀÓ ³­ÀÌµµ¸¦ ÀÔ·Â ¹ŞÀ½
-            System.out.print("- ³­ÀÌµµ¸¦ °ñ¶óÁÖ¼¼¿ä( 1 / 2 / 3 ) : ");
+            // ê²Œì„ ë‚œì´ë„ë¥¼ ì…ë ¥ ë°›ìŒ
+            System.out.print("- ë‚œì´ë„ë¥¼ ê³¨ë¼ì£¼ì„¸ìš”( 1 / 2 / 3 ) : ");
             int level = sc.nextInt();
             sc.nextLine();
             tc.setDifficultyLevel(level);
 
-            System.out.print("Ä³¸¯ÅÍ¸¦ »ı¼ºÇÏ½Ã°Ú½À´Ï±î? ( y / n ) : ");
+            System.out.print("ìºë¦­í„°ë¥¼ ìƒì„±í•˜ì‹œê² ìŠµë‹ˆê¹Œ? ( y / n ) : ");
             char reply = sc.nextLine().charAt(0);
             if (reply == 'y' || reply == 'Y') {
-                // Ä³¸¯ÅÍ¸¦ »ı¼º
+                // ìºë¦­í„°ë¥¼ ìƒì„±
                 tc.createCharacter();
             } else {
-                System.out.println("°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù.");
+                System.out.println("ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
                 return;
             }
 
-            // ·£´ıÀ¸·Î »ı¼ºµÈ ´Ù¸¶°íÄ¡ÀÇ ÀÌ¸§À» Ãâ·ÂÇÏ±â
-            System.out.println("´ç½ÅÀÇ ´Ù¸¶°íÄ¡´Â " + tc.getCharacter().getName() + "ÀÔ´Ï´Ù.");
+            // ëœë¤ìœ¼ë¡œ ìƒì„±ëœ ë‹¤ë§ˆê³ ì¹˜ì˜ ì´ë¦„ì„ ì¶œë ¥í•˜ê¸°
+            System.out.println("ë‹¹ì‹ ì˜ ë‹¤ë§ˆê³ ì¹˜ëŠ” " + tc.getCharacter().getName() + "ì…ë‹ˆë‹¤.");
             gameLoop();
         }
     }
@@ -41,7 +41,7 @@ public class GameMenu {
             handleMenuChoice(choice);
             tc.passTime();
         }
-        System.out.println("´ç½ÅÀÇ ´Ù¸¶°íÄ¡´Â Á×¾ú½À´Ï´Ù.");
+        System.out.println("ë‹¹ì‹ ì˜ ë‹¤ë§ˆê³ ì¹˜ëŠ” ì£½ì—ˆìŠµë‹ˆë‹¤.");
     }
 
     private void displayStatus() {
@@ -49,11 +49,11 @@ public class GameMenu {
     }
 
     private void displayMenu() {
-        System.out.println("1. ¹ä ÁÖ±â");
-        System.out.println("2. ¾Ä±â±â");
-        System.out.println("3. »êÃ¥ÇÏ±â");
-        System.out.println("4. ÀúÀåÇÏ±â");
-        System.out.println("5. °ÔÀÓ Á¾·áÇÏ±â");
+        System.out.println("1. ë°¥ ì£¼ê¸°");
+        System.out.println("2. ì”»ê¸°ê¸°");
+        System.out.println("3. ì‚°ì±…í•˜ê¸°");
+        System.out.println("4. ì €ì¥í•˜ê¸°");
+        System.out.println("5. ê²Œì„ ì¢…ë£Œí•˜ê¸°");
     }
 
     private void handleMenuChoice(int choice) {
@@ -73,13 +73,13 @@ public class GameMenu {
             case 5:
                 System.exit(0);
             default:
-                System.out.println("´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä.");
+                System.out.println("ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”.");
         }
     }
 
     private void saveGame() {
         // Implement game saving logic here
-        System.out.println("ÀúÀåµÇ¾ú½À´Ï´Ù.");
+        System.out.println("ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
     }
 
     public static void main(String[] args) {
