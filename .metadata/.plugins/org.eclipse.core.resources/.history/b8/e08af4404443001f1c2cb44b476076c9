@@ -1,0 +1,25 @@
+package model;
+
+public class RandomCharacter extends Character {
+
+	private static final String[] CHARACTERS = { "Mametchi", "Kuchipatchi", "Memetchi" };
+	
+	
+
+	
+	public RandomCharacter() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String generateRandomCharacter() {
+		int rand = (int)(Math.random() * 3);
+		super(CHARACTERS[rand]);
+		return CHARACTERS[rand];
+	}
+
+	public void setLevel(int level) {
+		super.setLevel(level);
+	}
+	
+
+}

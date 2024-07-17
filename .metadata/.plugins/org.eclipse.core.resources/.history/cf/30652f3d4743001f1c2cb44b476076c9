@@ -1,0 +1,33 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.TamagochiController;
+
+public class GameMenu {
+	TamagochiController tc = new TamagochiController();
+	Scanner sc = new Scanner(System.in);
+	private String userChar;
+
+	public void mainMenu() {
+		while (true) {
+			System.out.println("******** Welcome to Tamagochi Game! ********");
+			// 게임 난이도를 입력 받음
+			System.out.print("- select difficulty level( 1 / 2 / 3 ) : ");
+			int level = sc.nextInt();
+			sc.nextLine();
+			tc.setLevel(level);
+			System.out.print("캐릭터를 생성하시겠습니까? ( y / n ) : ");
+			char reply = sc.nextLine().charAt(0);
+			if(reply == 'y' || reply == 'Y') {
+				userChar = tc.generateRandomCharacter();
+			}else {
+				System.out.println("게임을 종료합니다.");
+				return;
+			}
+			System.out.println("당신의 다마고치는 " + userChar + "입니다.");
+			System.out.println(tc.getStatus());
+
+		}
+	}
+}

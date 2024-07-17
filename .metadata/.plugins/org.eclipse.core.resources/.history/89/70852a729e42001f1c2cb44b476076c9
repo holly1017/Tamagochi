@@ -1,0 +1,14 @@
+package controller;
+
+import model.RandomCharacter;
+
+public class TamagochiController {
+	
+	RandomCharacter rc = new RandomCharacter();
+
+	public void setLevel(int level) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
