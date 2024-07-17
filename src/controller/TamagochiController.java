@@ -1,5 +1,5 @@
 package controller;
-// ¶ö¶ö¤©¶ó
+
 import model.Character;
 import model.RandomCharacter;
 

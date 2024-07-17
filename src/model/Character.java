@@ -3,11 +3,12 @@ package model;
 import java.io.Serializable;
 
 public abstract class Character implements Serializable {
-    protected String name;
-    protected int hunger;
-    protected int cleanliness;
-    protected int happiness;
-    public String getName() {
+	protected String name;
+	protected int hunger;
+	protected int cleanliness;
+	protected int happiness;
+
+	public String getName() {
 		return name;
 	}
 
@@ -45,48 +46,47 @@ public abstract class Character implements Serializable {
 
 	protected boolean alive;
 
-    public Character(String name) {
-        this.name = name;
-        this.hunger = 100;
-        this.cleanliness = 100;
-        this.happiness = 100;
-        this.alive = true;
-    }
+	public Character(String name) {
+		this.name = name;
+		this.hunger = 100;
+		this.cleanliness = 100;
+		this.happiness = 100;
+		this.alive = true;
+	}
 
-    public void passTime(int difficulty) {
-        hunger -= 5 * difficulty;
-        cleanliness -= 5 * difficulty;
-        happiness -= 5 * difficulty;
-        checkAlive();
-    }
+	public void passTime(int difficulty) {
+		hunger -= 5 * difficulty;
+		cleanliness -= 5 * difficulty;
+		happiness -= 5 * difficulty;
+		checkAlive();
+	}
 
-    public void feed() {
-        hunger = Math.min(100, hunger + 20);
-    }
+	public void feed() {
+		hunger = Math.min(100, hunger + 20);
+	}
 
-    public void clean() {
-        cleanliness = Math.min(100, cleanliness + 20);
-    }
+	public void clean() {
+		cleanliness = Math.min(100, cleanliness + 20);
+	}
 
-    public void walk() {
-        happiness = Math.min(100, happiness + 20);
-        cleanliness = Math.max(0, cleanliness - 10);
-    }
+	public void walk() {
+		happiness = Math.min(100, happiness + 20);
+		cleanliness = Math.max(0, cleanliness - 10);
+	}
 
-    private void checkAlive() {
-        if (hunger <= 0 || cleanliness <= 0 || happiness <= 0) {
-            alive = false;
-            System.out.println(name + "´Â Á×¾ú½À´Ï´Ù.");
-        }
-    }
+	private void checkAlive() {
+		if (hunger <= 0 || cleanliness <= 0 || happiness <= 0) {
+			alive = false;
+			System.out.println(name + "ëŠ” ì£½ì—ˆìŠµë‹ˆë‹¤.");
+		}
+	}
 
-    public boolean isAlive() {
-        return alive;
-    }
+	public boolean isAlive() {
+		return alive;
+	}
 
-    public String getStatus() {
-		return  name + "´Â(Àº) Áö±Ý\n¹è°íÇÄ :  " + hunger + ", Ã»°áµµ : " + cleanliness + ", Çàº¹°¨ : "
-				+ happiness + ", »ý¸í·Â : " + alive;
-	
-    }
+	public String getStatus() {
+		return name + "ëŠ” í˜„ìž¬ ë°°ê³ í”” : " + hunger + ", ì²­ê²°ë„ : " + cleanliness + ", í–‰ë³µë„ : " + happiness + ", ìƒì¡´ : " + alive;
+
+	}
 }
