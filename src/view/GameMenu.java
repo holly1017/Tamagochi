@@ -160,7 +160,6 @@ public class GameMenu {
             tc.passTime();
         }
         System.out.println("Game over.");
-        return;
     }
 
     private void displayStatus() {
