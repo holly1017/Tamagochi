@@ -4,8 +4,8 @@ import java.util.Scanner;
 import controller.TamagochiController;
 
 public class GameMenu {
-    TamagochiController tc = new TamagochiController();
-    Scanner sc = new Scanner(System.in);
+    private TamagochiController tc = new TamagochiController();
+    private Scanner sc = new Scanner(System.in);
 
     public void mainMenu() {
         while (true) {
@@ -200,8 +200,4 @@ public class GameMenu {
         System.out.println("저장되었습니다.");
     }
 
-    public static void main(String[] args) {
-        GameMenu gameMenu = new GameMenu();
-        gameMenu.mainMenu();
-    }
 }

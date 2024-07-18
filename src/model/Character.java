@@ -7,43 +7,6 @@ public abstract class Character implements Serializable {
 	protected int hunger;
 	protected int cleanliness;
 	protected int happiness;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getHunger() {
-		return hunger;
-	}
-
-	public void setHunger(int hunger) {
-		this.hunger = hunger;
-	}
-
-	public int getCleanliness() {
-		return cleanliness;
-	}
-
-	public void setCleanliness(int cleanliness) {
-		this.cleanliness = cleanliness;
-	}
-
-	public int getHappiness() {
-		return happiness;
-	}
-
-	public void setHappiness(int happiness) {
-		this.happiness = happiness;
-	}
-
-	public void setAlive(boolean alive) {
-		this.alive = alive;
-	}
-
 	protected boolean alive;
 
 	public Character(String name) {
@@ -74,19 +37,33 @@ public abstract class Character implements Serializable {
 		cleanliness = Math.max(0, cleanliness - 10);
 	}
 
-	private void checkAlive() {
+	public void checkAlive() {
 		if (hunger <= 0 || cleanliness <= 0 || happiness <= 0) {
 			alive = false;
 			System.out.println(name + "는 죽었습니다.");
 		}
 	}
 
-	public boolean isAlive() {
-		return alive;
-	}
-
 	public String getStatus() {
 		return name + "는 현재 배고픔 : " + hunger + ", 청결도 : " + cleanliness + ", 행복도 : " + happiness + ", 생존 : " + alive;
 
 	}
+
+	public boolean isAlive() {
+		return alive;
+	}
+
+	public void setAlive(boolean alive) {
+		this.alive = alive;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }
