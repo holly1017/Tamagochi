@@ -1,15 +1,15 @@
-package model;
+package model.vo;
 
 import java.io.Serializable;
 
-public abstract class Character implements Serializable {
+public abstract class TamagochiCharacter implements Serializable {
 	protected String name;
 	protected int hunger;
 	protected int cleanliness;
 	protected int happiness;
 	protected boolean alive;
 
-	public Character(String name) {
+	public TamagochiCharacter(String name) {
 		this.name = name;
 		this.hunger = 100;
 		this.cleanliness = 100;

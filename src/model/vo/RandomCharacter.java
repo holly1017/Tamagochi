@@ -1,8 +1,8 @@
-package model;
+package model.vo;
 
 import java.util.Random;
 
-public class RandomCharacter extends Character {
+public class RandomCharacter extends TamagochiCharacter {
 	private static final String[] CHARACTERS = { "Mametchi", "Kuchipatchi", "Memetchi" };
 	
 	
