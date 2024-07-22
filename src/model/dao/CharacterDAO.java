@@ -16,7 +16,7 @@ import model.vo.TamagochiCharacter;
 public class CharacterDAO {
 
 	public void saveState(TamagochiCharacter character, int difficultyLevel, String userName) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(userName + "_character.dat"))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(userName + "_character.txt"))) {
             oos.writeInt(difficultyLevel); // 난이도 저장
             oos.writeObject(character); // 캐릭터 상태 저장
         } catch (IOException e) {
@@ -25,7 +25,7 @@ public class CharacterDAO {
     }
 
     public boolean readState(String userName, TamagochiController tc) {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(userName + "_character.dat"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(userName + "_character.txt"))) {
             int difficultyLevel = ois.readInt(); // 난이도 복원
             TamagochiCharacter character = (TamagochiCharacter) ois.readObject(); // 캐릭터 상태 복원
             tc.setDifficultyLevel(difficultyLevel); // 난이도 설정
@@ -34,7 +34,7 @@ public class CharacterDAO {
         } catch(EOFException e) {
         	
         }catch (FileNotFoundException e) {
-            System.out.println("저장된 캐릭터가 없습니다.");
+            System.out.println("저장된 사용자가 없습니다.");
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
