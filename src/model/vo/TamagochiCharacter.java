@@ -41,7 +41,6 @@ public abstract class TamagochiCharacter implements Serializable {
 		hunger = Math.min(100, hunger + 20);
 		affection = Math.min(150, affection + 5);
 		mealCount++;
-		checkPoop();
 	}
 
 	public void clean() {
@@ -49,6 +48,7 @@ public abstract class TamagochiCharacter implements Serializable {
 	}
 
 	public void goBathroom() {
+		checkPoop();
 		if (hasPoop) {
 			cleanliness = Math.min(100, cleanliness + 20);
 			hasPoop = false;
@@ -81,28 +81,30 @@ public abstract class TamagochiCharacter implements Serializable {
 	private void checkPoop() {
 		if (mealCount >= 3) {
 			hasPoop = true;
-			mealCount = 0;
+			mealCount -= 3;
 		}
 	}
 
-	private void checkForSnack() {
-		Random rand = new Random();
-		if (rand.nextInt(100) < 30) { // 30% 확률로 간식 발견
-			Snack snack = generateRandomSnack();
-			String snackName = snack.getName();
-			if (snacks.containsKey(snackName)) {
-				snacks.get(snackName).increaseCount();
-			} else {
-				snacks.put(snackName, snack);
+	private void checkForSnack() { // 산책 메소드에서 호출 될 메소드
+		Random rand = new Random(); // Random -> 난수 생성 메소드 제공 클래스
+		if (rand.nextInt(100) < 30) { 
+			// nextInt(int bound) -> 0부터 bound - 1까지의 정수를 랜덤하게 생성 
+			// 0~99까지 생성 / 조건 : 30보다 작을 때 실행 --> 30% 확률로 간식 발견
+			Snack snack = generateRandomSnack(); // 랜덤 간식 객체 생성
+			String snackName = snack.getName(); 
+			if (snacks.containsKey(snackName)) { // 가지고 있는 간식이라면
+				snacks.get(snackName).increaseCount(); // 갯수만 증가
+			} else { // 가지고 있지 않다면
+				snacks.put(snackName, snack); // 새롭게 저장
 			}
 			System.out.println(name + "가 공원에서 " + snack.getName() + "를 발견했습니다!");
 		}
 	}
 
-	private Snack generateRandomSnack() {
+	private Snack generateRandomSnack() { // 간식 랜덤 생성 메소드
 		Random rand = new Random();
-		int snackType = rand.nextInt(3);
-		switch (snackType) {
+		int snackType = rand.nextInt(3); // 0부터 2까지의 정수를 랜덤하게 생성
+		switch (snackType) { // 생성되는 정수에 따라 발견되는 간식 인스턴스 생성
 		case 0:
 			return new Snack("초콜릿", 15, 1);
 		case 1:

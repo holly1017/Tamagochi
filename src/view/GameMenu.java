@@ -220,11 +220,7 @@ public class GameMenu {
 			break;
 		case 3:
 			tc.goBathroom();
-			if (character.hasPoop()) {
-				System.out.println(character.getName() + "가 화장실에 갔습니다.");
-			} else {
-				System.out.println(character.getName() + "가 화장실에 갔지만 응가가 없었습니다.");
-			}
+			System.out.println(character.getName() + "가 화장실에 갔습니다.");
 			break;
 		case 4:
 			tc.walkCharacter();
