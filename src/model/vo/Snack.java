@@ -7,12 +7,7 @@ public class Snack implements Serializable {
     private int hungerBoost;
     private int count;
 
-    public Snack(String name, int hungerBoost) {
-        this.name = name;
-        this.hungerBoost = hungerBoost;
-    }
-
-    public Snack(String name, int hungerBoost, int affectionBoost, int count) {
+    public Snack(String name, int hungerBoost, int count) {
         this.name = name;
         this.hungerBoost = hungerBoost;
         this.count = count;

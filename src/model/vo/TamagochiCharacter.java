@@ -105,11 +105,11 @@ public abstract class TamagochiCharacter implements Serializable {
 		int snackType = rand.nextInt(3);
 		switch (snackType) {
 		case 0:
-			return new Snack("초콜릿", 15, 10, 1);
+			return new Snack("초콜릿", 15, 1);
 		case 1:
-			return new Snack("사과", 10, 5, 1);
+			return new Snack("사과", 10, 1);
 		case 2:
-			return new Snack("쿠키", 20, 15, 1);
+			return new Snack("쿠키", 20, 1);
 		default:
 			return null;
 		}
