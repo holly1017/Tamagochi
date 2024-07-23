@@ -70,14 +70,13 @@ public abstract class TamagochiCharacter implements Serializable {
 	}
 
 	public void giveSnack(Snack snack) {
-	    hunger = Math.min(100, hunger + snack.getHungerBoost());
-	    
-	    snack.decreaseCount();
-	    if (snack.getCount() <= 0) {
-	        snacks.remove(snack.getName());
-	    }
-	}
+		hunger = Math.min(100, hunger + snack.getHungerBoost());
 
+		snack.decreaseCount();
+		if (snack.getCount() <= 0) {
+			snacks.remove(snack.getName());
+		}
+	}
 
 	private void checkPoop() {
 		if (mealCount >= 3) {
@@ -129,16 +128,13 @@ public abstract class TamagochiCharacter implements Serializable {
 		}
 	}
 
-	 public String getStatus() {
-	        return String.format(
-	            "---------------------------------------\n" +
-	            "%s의 현재 상태\n" +
-	            "배고픔: %d 🍔 | 청결도: %d 🛁 | 행복도: %d 😃 | 애정도: %d 💖\n" +
-	            "생존 상태: %s\n" +
-	            "---------------------------------------",
-	            name, hunger, cleanliness, happiness, affection, alive ? "생존" : "죽음"
-	        );
-	    }
+	public String getStatus() {
+		return String.format(
+				"---------------------------------------\n" + "%s의 현재 상태\n"
+						+ "배고픔: %d 🍔 | 청결도: %d 🛁 | 행복도: %d 😃 | 애정도: %d 💖\n" + "생존 상태: %s\n"
+						+ "---------------------------------------",
+				name, hunger, cleanliness, happiness, affection, alive ? "생존" : "죽음");
+	}
 
 	public boolean isAlive() {
 		return alive;

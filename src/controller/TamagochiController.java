@@ -9,73 +9,73 @@ import java.util.List;
 import java.util.Map;
 
 public class TamagochiController {
-    private TamagochiCharacter character;
-    private int difficultyLevel;
-    private CharacterDAO cd = new CharacterDAO();
+	private TamagochiCharacter character;
+	private int difficultyLevel;
+	private CharacterDAO cd = new CharacterDAO();
 
-    public void createCharacter() {
-        character = new RandomCharacter();
-    }
+	public void createCharacter() {
+		character = new RandomCharacter();
+	}
 
-    public void setDifficultyLevel(int level) {
-        this.difficultyLevel = level;
-    }
+	public void setDifficultyLevel(int level) {
+		this.difficultyLevel = level;
+	}
 
-    public TamagochiCharacter getCharacter() {
-        return character;
-    }
+	public TamagochiCharacter getCharacter() {
+		return character;
+	}
 
-    public boolean isGameOver() {
-        return !character.isAlive();
-    }
+	public boolean isGameOver() {
+		return !character.isAlive();
+	}
 
-    public void passTime() {
-        character.passTime(difficultyLevel);
-    }
+	public void passTime() {
+		character.passTime(difficultyLevel);
+	}
 
-    public void feedCharacter() {
-        character.feed();
-    }
+	public void feedCharacter() {
+		character.feed();
+	}
 
-    public void cleanCharacter() {
-        character.clean();
-    }
-    
-    public void goBathroom() {
-        character.goBathroom();
-    }
+	public void cleanCharacter() {
+		character.clean();
+	}
 
-    public void walkCharacter() {
-        character.walk();
-    }
+	public void goBathroom() {
+		character.goBathroom();
+	}
 
-    public void playWithCharacter() {
-        character.play();
-    }
+	public void walkCharacter() {
+		character.walk();
+	}
 
-   public void giveSnack(Snack snack) {
-	   character.giveSnack(snack);
-   }
+	public void playWithCharacter() {
+		character.play();
+	}
 
-    public String getCharacterStatus() {
-        return character.getStatus();
-    }
+	public void giveSnack(Snack snack) {
+		character.giveSnack(snack);
+	}
 
-    public void saveState(String userName) {
-        cd.saveState(character, difficultyLevel, userName);
-    }
+	public String getCharacterStatus() {
+		return character.getStatus();
+	}
 
-    public boolean readState(String userName) {
-            return cd.readState(userName, this);
-    }
+	public void saveState(String userName) {
+		cd.saveState(character, difficultyLevel, userName);
+	}
 
-    public void deleteState(String userName) {
-        cd.deleteState(userName);
-    }
+	public boolean readState(String userName) {
+		return cd.readState(userName, this);
+	}
 
-    public Map<String, Snack> getSnacks() {
-        return character.getSnacks();
-    }
+	public void deleteState(String userName) {
+		cd.deleteState(userName);
+	}
+
+	public Map<String, Snack> getSnacks() {
+		return character.getSnacks();
+	}
 
 	public void setCharacter(TamagochiCharacter character) {
 		this.character = character;
